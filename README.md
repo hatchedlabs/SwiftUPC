@@ -2,6 +2,8 @@
 Small, lightweight library for generating UPC-A barcodes from text data. Currently provides utilities for parsing
 structured barcode data from a string representation, as well as a custom UIKit view for displaying barcode data.
 
+![SwiftUPC easy UPC-A barcode generation in Swift](https://raw.githubusercontent.com/hatchedlabs/SwiftUPC/master/Assets/demo%20screenshot.png)
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
