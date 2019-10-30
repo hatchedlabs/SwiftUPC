@@ -1,0 +1,16 @@
+PODS:
+  - SwiftUPC (0.0.1)
+
+DEPENDENCIES:
+  - SwiftUPC (from `../`)
+
+EXTERNAL SOURCES:
+  SwiftUPC:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  SwiftUPC: 2f4ffc5d4ff53cc7ba4a6f927fb5a9e7a8d22bab
+
+PODFILE CHECKSUM: 58efd8adf5df6650c2473ecacb0a0f4b5c344a80
+
+COCOAPODS: 1.8.4
