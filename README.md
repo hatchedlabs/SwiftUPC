@@ -44,6 +44,14 @@ let barcodeView: UPCABarcodeView // initialized somewhere in code, Storyboard, o
 barcodeView.barcodeModules = barcodeModules
 ```
 
+### Check Digit Calculation
+Check digits can be calculated for any valid UPC (or EAN13) code:
+
+```swift
+let code = [1, 2, 3]
+let checkDigit = UPCABarcodeGenerator.calculateCheckDigit(from: code)
+```
+
 ## Author
 
 [Hatched Labs](https://hatchedlabs.com)

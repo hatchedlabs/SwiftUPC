@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03B8C58F23A012CF0038FC15 /* CheckDigitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B8C58D23A012260038FC15 /* CheckDigitTests.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		03B8C58D23A012260038FC15 /* CheckDigitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckDigitTests.swift; sourceTree = "<group>"; };
 		250DDD076BB20501DFCDDC75 /* SwiftUPC.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SwiftUPC.podspec; path = ../SwiftUPC.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		49FF8247ABA137FC789CA02C /* Pods-SwiftUPC_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftUPC_Tests.release.xcconfig"; path = "Target Support Files/Pods-SwiftUPC_Tests/Pods-SwiftUPC_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		541C7387EF0B0085462740F7 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				03B8C58D23A012260038FC15 /* CheckDigitTests.swift */,
 				607FACEB1AFB9204008FA782 /* Tests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
@@ -336,6 +339,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03B8C58F23A012CF0038FC15 /* CheckDigitTests.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
