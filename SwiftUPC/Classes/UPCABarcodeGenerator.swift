@@ -36,6 +36,24 @@ public enum UPCABarcodeGenerator {
         return modules.consolidatingModules
     }
 
+    /// Calculates the check digit for a numeric code of arbitrary length.
+    /// - Note: If an empty code is supplied, 0 will be returned.
+    public static func calculateCheckDigit<Code>(from code: Code) -> Int where Code: Sequence, Code.Element == Int {
+        // Sum up the digits in even/odd positions in the sequence.
+        var odds: Int = 0
+        var evens: Int = 0
+        for (index, codeDigit) in code.enumerated() {
+            if (index + 1) % 2 == 0 {
+                evens += codeDigit
+            } else {
+                odds += codeDigit
+            }
+        }
+
+        let mod10 = ((odds * 3) + evens) % 10
+        return (10 - mod10) % 10
+    }
+
     /// Converts a `String` representation of a series of digits into an array of integers.
     static func digits(from string: String) throws -> [Int] {
         return try string.map {
@@ -58,19 +76,8 @@ public enum UPCABarcodeGenerator {
             throw BarcodeGeneratorError.invalidValue(code)
         }
 
-        // Sum up the digits in even/odd positions in the sequence.
-        var odds: Int = 0
-        var evens: Int = 0
-        for (index, codeDigit) in code.enumerated() {
-            if (index + 1) % 2 == 0 {
-                evens += codeDigit
-            } else {
-                odds += codeDigit
-            }
-        }
-
-        let checkDigitIsValid = ((odds * 3) + evens) % 10 == 0
-        guard checkDigitIsValid else {
+        let checkDigit = code[11]
+        guard checkDigit == calculateCheckDigit(from: code[..<11]) else {
             throw BarcodeGeneratorError.invalidCheckDigit(code)
         }
     }
