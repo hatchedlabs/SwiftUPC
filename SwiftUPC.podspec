@@ -7,7 +7,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SwiftUPC'
-  s.version          = '0.0.1'
+  s.version          = '0.0.2'
   s.summary          = 'Generate UPC-A barcodes from text.'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.swift_version    = '5.1'
