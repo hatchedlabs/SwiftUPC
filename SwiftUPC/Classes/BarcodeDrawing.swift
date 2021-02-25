@@ -10,7 +10,7 @@ enum BarcodeDrawing {
     /// Creates a **unit** (i.e. not scaled for display) path of a bar code. Because this uses a unit module width and height of 1,
     /// it can be scaled in both the x and y directions for display.
     static func unitPathForModules(_ modules: [BarcodeModule]) -> CGPath {
-        var path = CGMutablePath()
+        let path = CGMutablePath()
         var xPos = 0
 
         for module in modules {
