@@ -17,7 +17,8 @@ structured barcode data from a string representation, as well as a custom UIKit 
                        DESC
 
   s.homepage         		= 'https://github.com/hatchedlabs/SwiftUPC'
-  s.authors          		= { 'Hatched Labs' => 'opensource@hatchedlabs.com' }
+  s.authors          		= { 'Hatched Labs' => 'opensource@hatchedlabs.com',
+                            'Cory Hawkraven' => 'cory@hawkraven.me' }
   s.source           		= { :git => 'https://github.com/hatchedlabs/SwiftUPC.git', :tag => s.version.to_s }
   s.ios.deployment_target 	= '12.0'
   s.source_files 		= 'SwiftUPC/Classes/**/*'
