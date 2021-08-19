@@ -21,7 +21,7 @@ structured barcode data from a string representation, as well as a custom UIKit 
                             'Cory Hawkraven' => 'cory@hawkraven.me' }
   s.source           		= { :git => 'https://github.com/hatchedlabs/SwiftUPC.git', :tag => s.version.to_s }
   s.ios.deployment_target 	= '12.0'
-  s.source_files 		= 'SwiftUPC/Classes/**/*'
+  s.source_files 		= 'Sources/SwiftUPC/**/*'
 
   # s.resource_bundles = {
   #   'SwiftUPC' => ['SwiftUPC/Assets/*.png']
