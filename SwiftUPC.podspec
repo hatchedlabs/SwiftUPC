@@ -7,20 +7,21 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SwiftUPC'
-  s.version          = '0.0.2'
+  s.version          = '0.0.3'
   s.summary          = 'Generate UPC-A barcodes from text.'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.swift_version    = '5.1'
   s.description      = <<-DESC
 Small, lightweight library for generating UPC-A barcodes from text data. Currently provides utilities for parsing
-structured barcode data from a string representation, as well as a custom UIKit view for displaying barcode data.
+structured barcode data from a string representation, as well as custom UIKit and SwiftUI views for displaying barcode data.
                        DESC
 
   s.homepage         		= 'https://github.com/hatchedlabs/SwiftUPC'
   s.authors          		= { 'Hatched Labs' => 'opensource@hatchedlabs.com',
                             'Cory Hawkraven' => 'cory@hawkraven.me' }
   s.source           		= { :git => 'https://github.com/hatchedlabs/SwiftUPC.git', :tag => s.version.to_s }
-  s.ios.deployment_target 	= '12.0'
+  
+  s.ios.deployment_target 	= '13.0'
   s.source_files 		= 'Sources/SwiftUPC/**/*'
 
   # s.resource_bundles = {

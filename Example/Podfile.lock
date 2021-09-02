@@ -1,5 +1,5 @@
 PODS:
-  - SwiftUPC (0.0.1)
+  - SwiftUPC (0.0.3)
 
 DEPENDENCIES:
   - SwiftUPC (from `../`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  SwiftUPC: 2f4ffc5d4ff53cc7ba4a6f927fb5a9e7a8d22bab
+  SwiftUPC: 2d7afc11be97ec12e73828d4fd0202626ca65d62
 
 PODFILE CHECKSUM: 58efd8adf5df6650c2473ecacb0a0f4b5c344a80
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.10.1
