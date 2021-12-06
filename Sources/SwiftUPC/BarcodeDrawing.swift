@@ -6,10 +6,10 @@ import Foundation
 import CoreGraphics
 
 /// Utility to convert structured barcode data into drawable objects.
-enum BarcodeDrawing {
+public enum BarcodeDrawing {
     /// Creates a **unit** (i.e. not scaled for display) path of a bar code. Because this uses a unit module width and height of 1,
     /// it can be scaled in both the x and y directions for display.
-    static func unitPathForModules(_ modules: [BarcodeModule]) -> CGPath {
+    public static func unitPathForModules(_ modules: [BarcodeModule]) -> CGPath {
         let path = CGMutablePath()
         var xPos = 0
 
