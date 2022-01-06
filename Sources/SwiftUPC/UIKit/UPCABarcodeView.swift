@@ -6,6 +6,8 @@ import Foundation
 import UIKit
 
 /// Displays a UPC-A barcode in its bounds. The displayed barcode will always fill this view.
+
+@available(*, deprecated, message: "UPCABarcodeView class is depracated, use UPACView class")
 final public class UPCABarcodeView: UIView {
     private var shapeLayer: CAShapeLayer { self.layer as! CAShapeLayer }
     private var lastLayerBounds: CGRect = .zero

@@ -1,30 +1,37 @@
 //
-//  UPCAView.swift
-//  SwiftUPC_Example
-//
-//  Created by Andrew HunzekerHesed on 8/26/21.
-//  Copyright © 2021 CocoaPods. All rights reserved.
+//  Copyright © 2021 Hatched Labs. All rights reserved.
 //
 
 import SwiftUI
+import Combine
 import CoreGraphics
 
 /// A Swift UI implementation of the UPCA generator.  Whhen using please remember to set the width at least 50% wider than the
 /// height.  (tested against the iphone Scanner app).  YMMV.
 
-public struct UPCAView: View {
-    public init(upc: String) {
-        self.upc = upc
+public class UPCAData: ObservableObject {
+    private var code: String
+    @Published private(set) var barcodeModules: [BarcodeModule]?
+
+    public init() {
+        self.code = "" // Init Empty String
     }
+    
+    public func generateCode(code: String) throws {
+        self.code = code
+        self.barcodeModules = try UPCABarcodeGenerator.upcaBarcodeModules(from: self.code)
+    }
+}
 
-    public let upc: String
+public struct UPCAView: View {
+    @ObservedObject public var dataModel: UPCAData
 
-    private var modules: [BarcodeModule]? {
-        try? UPCABarcodeGenerator.upcaBarcodeModules(from: upc)
+    public init(dataModel: UPCAData = UPCAData()) {
+        self.dataModel = dataModel
     }
 
     private var unitPath: CGPath {
-        BarcodeDrawing.unitPathForModules(modules ?? [])
+        BarcodeDrawing.unitPathForModules(dataModel.barcodeModules ?? [])
     }
 
     private func updateScaling(_ size: CGSize) -> CGPath {
@@ -50,8 +57,11 @@ public struct UPCAView: View {
 }
 
 struct UPCAView_Previews: PreviewProvider {
+    static var data = UPCAData()
+    
     static var previews: some View {
-        UPCAView(upc: "474003059110").frame(width: 160, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+        UPCAView(dataModel: data)
+            .frame(width: 160, height: 100, alignment: .center)
 
     }
 }
