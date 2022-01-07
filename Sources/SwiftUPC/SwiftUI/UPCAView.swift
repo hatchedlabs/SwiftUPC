@@ -62,6 +62,9 @@ struct UPCAView_Previews: PreviewProvider {
     static var previews: some View {
         UPCAView(dataModel: data)
             .frame(width: 160, height: 100, alignment: .center)
+            .onAppear {
+                try? data.generateCode(code: "474003059110")
+            }
 
     }
 }
