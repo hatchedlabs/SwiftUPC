@@ -55,6 +55,7 @@ public struct UPCAView: View {
         }
     }
 }
+#if DEBUG
 
 struct UPCAView_Previews: PreviewProvider {
     static var data = UPCAData()
@@ -68,3 +69,5 @@ struct UPCAView_Previews: PreviewProvider {
 
     }
 }
+
+#endif
