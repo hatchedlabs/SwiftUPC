@@ -5,9 +5,11 @@
 import Foundation
 import UIKit
 import SwiftUPC
+import SwiftUI
 
 final class DemoController: UIViewController {
-    private weak var barcodeView: UPCABarcodeView!
+    private weak var barcode: UIHostingController<UPCAView>!
+    private var barcodeDataModel = UPCAData()
     private weak var textField: UITextField!
     private weak var generateButton: UIButton!
     private weak var errorLabel: UILabel!
@@ -44,18 +46,21 @@ final class DemoController: UIViewController {
         barcodeContainer.backgroundColor = .secondarySystemBackground
         stack.addArrangedSubview(barcodeContainer)
 
-        let barcode = UPCABarcodeView()
-        barcode.translatesAutoresizingMaskIntoConstraints = false
-        barcode.backgroundColor = .white
-        barcodeContainer.addSubview(barcode)
+        let barcode = UIHostingController(rootView: UPCAView(dataModel: barcodeDataModel))
+        barcode.view.frame = view.frame
+        view.addSubview(barcode.view)
+        barcode.didMove(toParent: self)
+        barcode.view.translatesAutoresizingMaskIntoConstraints = false
+        barcode.view.backgroundColor = .white
+        barcodeContainer.addSubview(barcode.view)
         NSLayoutConstraint.activate([
-            barcode.topAnchor.constraint(equalTo: barcodeContainer.topAnchor, constant: 8),
-            barcode.leftAnchor.constraint(equalTo: barcodeContainer.leftAnchor, constant: 8),
-            barcode.rightAnchor.constraint(equalTo: barcodeContainer.rightAnchor, constant: -8),
-            barcode.bottomAnchor.constraint(equalTo: barcodeContainer.bottomAnchor, constant: -8),
-            barcode.heightAnchor.constraint(equalToConstant: 100)
+            barcode.view.topAnchor.constraint(equalTo: barcodeContainer.topAnchor, constant: 8),
+            barcode.view.leftAnchor.constraint(equalTo: barcodeContainer.leftAnchor, constant: 8),
+            barcode.view.rightAnchor.constraint(equalTo: barcodeContainer.rightAnchor, constant: -8),
+            barcode.view.bottomAnchor.constraint(equalTo: barcodeContainer.bottomAnchor, constant: -8),
+            barcode.view.heightAnchor.constraint(equalToConstant: 100)
         ])
-        self.barcodeView = barcode
+        self.barcode = barcode
 
         let generateButton = UIButton(type: .custom)
         generateButton.setTitle("Generate Bar Code", for: .normal)
@@ -97,11 +102,9 @@ final class DemoController: UIViewController {
 
     private func displayBarCode(_ code: String) {
         do {
-            barcodeView.barcodeModules = try UPCABarcodeGenerator.upcaBarcodeModules(from: code)
-            errorLabel.alpha = 0
+            try barcodeDataModel.generateCode(code: code)
         } catch {
-            fadeInError(error)
-            barcodeView.barcodeModules = []
+            print("Error Display Bar Code: (\(error)")
         }
     }
 
